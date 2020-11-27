@@ -1,0 +1,73 @@
+docker KT_STAR 배포 하기
+
+
+
+# 작성일: 2020.11.27 기준
+# 서버-TO-서버 보안관 역할
+
+
+ㅇ 사전준비 : CentOS7 & docker Install
+
+
+0. SELiux
+"/proc/self/attr/keycreate: permission denied" 에러 발생시
+# setenforce 0
+
+
+1. 방화벽 확인
+# systemctl stop firewalld
+# systemctl disable firewalld
+# systemctl stop docker
+# systemctl start docker
+# iptables -nvL
+
+
+(만약 firewalld 사용시 https 서비스 오픈 필요)
+# systemctl restart firewalld
+# firewall-cmd --add-port=9443/tcp --permanent
+# firewall-cmd --reload
+# firewall-cmd --list-all
+
+
+
+2. 프로그램 다운로드 및 실행
+# mkdir -p /Project1/
+# cd /Project1/
+# rm -rf *
+# wget https://github.com/gzone2000/cicd/raw/master/S2S/2.KT_STAR.deploy.20190918.tar.gz
+# tar xvzf 2.KT_STAR.deploy.20190918.tar.gz
+# cd KT_STAR
+# sh ./INSTALL.KT_AAAS.sh
+# sh ./STOP.KT_STAR.sh
+# sh ./START.KT_STAR.sh
+
+
+
+3. 웹브라우져 
+https://<IP Address>:9443/S2S
+
+
+
+4. KT_AAAS STOP/START
+# cd /Project
+# sh ./STOP.KT_AAAS.sh 
+# sh ./START.KT_AAAS.sh 
+
+
+
+
+
+
+
+@@ 참고 @@
+
+# cat INSTALL.KT_AAAS.sh 
+sysctl -w net.ipv4.conf.all.forwarding=1
+docker rm -f KT_STAR
+docker run --privileged --name KT_STAR --restart=always -d -p 8080:80 -p 9443:443 \
+-v /Project1/KT_STAR/html:/var/www/html \
+-v /Project1/KT_STAR/mysql:/var/lib/mysql \
+gzone2000/my_test:CentOS7_BASE_LAMP_KTSTAR
+
+# cat START.KT_STAR.sh 
+docker start KT_STAR
