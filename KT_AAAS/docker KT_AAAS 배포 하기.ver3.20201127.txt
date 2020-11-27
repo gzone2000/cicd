@@ -1,21 +1,21 @@
-docker KT_AAAS ¹èÆ÷ ÇÏ±â
+docker KT_AAAS ë°°í¬ í•˜ê¸°
 
 
 
-# ÀÛ¼ºÀÏ: 2020.11.27 ±âÁØ
+# ì‘ì„±ì¼: 2020.11.27 ê¸°ì¤€
 # A-OPS : Version3
-  - Ver1 Â÷ÀÌÁ¡ : Á¶±Ù Á¡°Ë ´ë½¬º¸µå, Icinga ¿¬µ¿ ¹× Àå¾Ö ¹ß»ı½Ã ÀÇ»ç°áÁ¤ Á¤º¸ Á¦°ø
+  - Ver1 ì°¨ì´ì  : ì¡°ê·¼ ì ê²€ ëŒ€ì‰¬ë³´ë“œ, Icinga ì—°ë™ ë° ì¥ì•  ë°œìƒì‹œ ì˜ì‚¬ê²°ì • ì •ë³´ ì œê³µ
 
 
-¤· »çÀüÁØºñ : CentOS7 & docker Install
+ã…‡ ì‚¬ì „ì¤€ë¹„ : CentOS7 & docker Install
 
 
 0. SELiux
-"/proc/self/attr/keycreate: permission denied" ¿¡·¯ ¹ß»ı½Ã
+"/proc/self/attr/keycreate: permission denied" ì—ëŸ¬ ë°œìƒì‹œ
 # setenforce 0
 
 
-1. ¹æÈ­º® È®ÀÎ
+1. ë°©í™”ë²½ í™•ì¸
 # systemctl stop firewalld
 # systemctl disable firewalld
 # systemctl stop docker
@@ -23,7 +23,7 @@ docker KT_AAAS ¹èÆ÷ ÇÏ±â
 # iptables -nvL
 
 
-(¸¸¾à firewalld »ç¿ë½Ã https ¼­ºñ½º ¿ÀÇÂ ÇÊ¿ä)
+(ë§Œì•½ firewalld ì‚¬ìš©ì‹œ https ì„œë¹„ìŠ¤ ì˜¤í”ˆ í•„ìš”)
 # systemctl restart firewalld
 # firewall-cmd --add-service=https --permanent
 # firewall-cmd --reload
@@ -31,11 +31,11 @@ docker KT_AAAS ¹èÆ÷ ÇÏ±â
 
 
 
-2. ÇÁ·Î±×·¥ ´Ù¿î·Îµå ¹× ½ÇÇà
+2. í”„ë¡œê·¸ë¨ ë‹¤ìš´ë¡œë“œ ë° ì‹¤í–‰
 # mkdir /Project
 # cd /Project
 # rm -rf *
-# wget https://github.com/gzone2000/cicd/raw/master/2.KT_AAAS.deploy.20201127.tar.gz
+# wget https://github.com/gzone2000/cicd/raw/master/KT_AAAS/2.KT_AAAS.deploy.20201127.tar.gz
 # tar xvzf 2.KT_AAAS.deploy.20201127.tar.gz
 # cd KT_AAAS
 # sh ./INSTALL.KT_AAAS.sh 
@@ -43,7 +43,7 @@ docker KT_AAAS ¹èÆ÷ ÇÏ±â
 
 
 
-3. À¥ºê¶ó¿ìÁ® 
+3. ì›¹ë¸Œë¼ìš°ì ¸ 
 https://<IP Address>:443/S2S
 
 
@@ -59,7 +59,7 @@ https://<IP Address>:443/S2S
 
 
 
-@@ Âü°í @@
+@@ ì°¸ê³  @@
 
 # cat START.KT_AAAS.sh
 docker start KT_AAAS
