@@ -3,7 +3,7 @@ function logging
 {
 
 SKIP="N"
-SEVERIP="10.4.249.202"
+SEVERIP="10.4.249.202:8080"
 UPATH="/S2S/pages"
 URL="${SEVERIP}${UPATH}"
 cmd=$(history|tail -1|sed 's/^[ ]*[0-9]\+[ ]*//' | sed 's|&|#Y#|g')
