@@ -51,10 +51,10 @@ https://<IP Address>:9443/S2S
 
 
 
-4. KT_AAAS STOP/START
+4. KT_STAR STOP/START
 # cd /Project
-# sh ./STOP.KT_AAAS.sh 
-# sh ./START.KT_AAAS.sh 
+# sh ./STOP.KT_STAR.sh
+# sh ./START.KT_STAR.sh
 
 
 
