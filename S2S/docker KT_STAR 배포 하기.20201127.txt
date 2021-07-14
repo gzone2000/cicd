@@ -1,20 +1,23 @@
-docker KT_STAR ¹èÆ÷ ÇÏ±â
+docker KT_STAR ë°°í¬ í•˜ê¸°
 
 
 
-# ÀÛ¼ºÀÏ: 2020.11.27 ±âÁØ
-# ¼­¹ö-TO-¼­¹ö º¸¾È°ü ¿ªÇÒ
+# ì‘ì„±ì¼: 2020.11.27 ê¸°ì¤€
+# ì„œë²„-TO-ì„œë²„ ë³´ì•ˆê´€ ì—­í• 
 
 
-¤· »çÀüÁØºñ : CentOS7 & docker Install
+ã…‡ ì‚¬ì „ì¤€ë¹„ 
+   - CentOS7 & docker Install
+   - docker ê¸°ë™ : systemctl start docker
+   - ë°˜ë“œì‹œ ì‹œê°„ ë™ê¸°í™” ë§ëŠ”ì§€ í™•ì¸. ì•ˆë§ìœ¼ë©´ x509: certificate has expired or is not yet valid ì—ëŸ¬ ë°œìƒ
 
 
 0. SELiux
-"/proc/self/attr/keycreate: permission denied" ¿¡·¯ ¹ß»ı½Ã
+"/proc/self/attr/keycreate: permission denied" ì—ëŸ¬ ë°œìƒì‹œ
 # setenforce 0
 
 
-1. ¹æÈ­º® È®ÀÎ
+1. ë°©í™”ë²½ í™•ì¸
 # systemctl stop firewalld
 # systemctl disable firewalld
 # systemctl stop docker
@@ -22,7 +25,7 @@ docker KT_STAR ¹èÆ÷ ÇÏ±â
 # iptables -nvL
 
 
-(¸¸¾à firewalld »ç¿ë½Ã https ¼­ºñ½º ¿ÀÇÂ ÇÊ¿ä)
+(ë§Œì•½ firewalld ì‚¬ìš©ì‹œ https ì„œë¹„ìŠ¤ ì˜¤í”ˆ í•„ìš”)
 # systemctl restart firewalld
 # firewall-cmd --add-port=9443/tcp --permanent
 # firewall-cmd --reload
@@ -30,7 +33,7 @@ docker KT_STAR ¹èÆ÷ ÇÏ±â
 
 
 
-2. ÇÁ·Î±×·¥ ´Ù¿î·Îµå ¹× ½ÇÇà
+2. í”„ë¡œê·¸ë¨ ë‹¤ìš´ë¡œë“œ ë° ì‹¤í–‰
 # mkdir -p /Project1/
 # cd /Project1/
 # rm -rf *
@@ -43,7 +46,7 @@ docker KT_STAR ¹èÆ÷ ÇÏ±â
 
 
 
-3. À¥ºê¶ó¿ìÁ® 
+3. ì›¹ë¸Œë¼ìš°ì ¸ 
 https://<IP Address>:9443/S2S
 
 
@@ -59,7 +62,7 @@ https://<IP Address>:9443/S2S
 
 
 
-@@ Âü°í @@
+@@ ì°¸ê³  @@
 
 # cat INSTALL.KT_AAAS.sh 
 sysctl -w net.ipv4.conf.all.forwarding=1
