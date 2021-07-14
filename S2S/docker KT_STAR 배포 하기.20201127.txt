@@ -48,6 +48,7 @@ docker KT_STAR 배포 하기
 
 3. 웹브라우져 
 https://<IP Address>:9443/S2S
+admin/c@g3~~~
 
 
 
